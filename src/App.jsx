@@ -10,14 +10,14 @@ import Menu from "./Menu";
 function App()
 { 
     return ( 
-        <Router basename={process.env.PUBLIC_URL}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Routes>
               <Route path = "/" element={<Home />} />
               <Route path = "/Contact" element={<Contact />} />
               <Route path = "/About" element={<About />} />
               <Route path = "/Menu" element={<Menu />} />
             </Routes>
-        </Router> 
+        </BrowserRouter> 
     );
 }
 
