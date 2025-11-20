@@ -10,14 +10,14 @@ import Menu from "./Menu";
 function App()
 { 
     return ( 
-        <BrowserRouter basename="/hw3Webdev">
+        <Router basename="/hw3Webdev">
             <Routes>
               <Route path = "/" element={<Home />} />
               <Route path = "/Contact" element={<Contact />} />
               <Route path = "/About" element={<About />} />
               <Route path = "/Menu" element={<Menu />} />
             </Routes>
-        </BrowserRouter> 
+        </Router> 
     );
 }
 
