@@ -1,0 +1,132 @@
+body {
+    font-family: 'BBH Sans Bogle', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: rgb(83, 56, 56);
+    background-color: #fff8f0;
+  }
+  
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+  }
+  
+  .hero_text a {
+    font-family: "BBH Sans Bartle", sans-serif;
+    font-size: 60px; 
+    max-width: 1200px; 
+    color: rgb(249, 244, 219);
+    text-decoration: none;
+    letter-spacing: 1px;
+  }
+  
+ 
+  .menu {
+    width: 60%; 
+    margin: 30px auto;
+    border-collapse: collapse;
+    font-size: 40px; 
+    text-align: left;
+  }
+  
+  .menu th, .menu td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .menu tr {
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .menu tr:hover {
+    background-color: #fff3e0;
+  }
+  
+  .cart {
+    width: 60%; 
+    margin: 20px auto 50px auto;
+    border-top: 2px solid rgb(83, 56, 56);
+    padding-top: 15px;
+    background-color: #fff8f0;
+    border-radius: 10px;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 20px; 
+  }
+  
+  .cart-item:last-child {
+    border-bottom: none;
+  }
+  
+  .remove-btn {
+    color: rgb(83, 56, 56);
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .remove-btn:hover {
+    color: #c0392b;
+  }
+  
+  button.clear-cart {
+    margin-top: 10px;
+    padding: 8px 16px; 
+    font-size: 18px;
+    background-color: #5c4033;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button.clear-cart:hover {
+    background-color: #3e2a23;
+  }
+  
+  .slider {
+    width: 60%; 
+    margin: 30px auto;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .slides {
+    display: flex;
+    width: 100%; 
+    animation: slide 18s infinite;
+  }
+  
+  .slide {
+    width: 50%;
+    flex-shrink: 0;
+  }
+  
+  .slide img {
+    width:100%;
+    display: block;
+    border-radius: 12px; 
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0%); }
+    16.66% { transform: translateX(-100%); }
+    33.33% { transform: translateX(-200%); }
+    50% { transform: translateX(-300%); }
+    66.66% { transform: translateX(-400%); }
+    83.33% { transform: translateX(-500%); }
+    100% { transform: translateX(0%); }
+  }
+  
