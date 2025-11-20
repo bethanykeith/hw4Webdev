@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowswerRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./Home";
 import Contact from "./Contact";
@@ -10,7 +10,7 @@ import Menu from "./Menu";
 function App()
 { 
     return ( 
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Routes>
               <Route path = "/" element={<Home />} />
               <Route path = "/Contact" element={<Contact />} />
