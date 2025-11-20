@@ -10,7 +10,7 @@ import Menu from "./Menu";
 function App()
 { 
     return ( 
-        <BrowserRouter basename=/"hw3Webdev">
+        <BrowserRouter basename="/hw3Webdev">
             <Routes>
               <Route path = "/" element={<Home />} />
               <Route path = "/Contact" element={<Contact />} />
