@@ -1,49 +1,91 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Menu.css"; 
-
-const menuItems = [
-  { name: "House-Brewed Espresso", price: 2 },
-  { name: "Latte", price: 3.5 },
-  { name: "Americano", price: 3 },
-  { name: "Flat White", price: 3 },
-  { name: "Croissant", price: 3 },
-  { name: "Muffin of the Day", price: 3 },
-  { name: "Bag of Coffee Beans", price: 10 },
-];
+import "./Menu.css";
 
 function Menu() {
+  const [menuItems, setMenuItems] = useState([]);
   const [cart, setCart] = useState([]);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("/api/menu")
+      .then(res => res.json())
+      .then(data => {
+        if (Array.isArray(data)) {
+          setMenuItems(data);
+        } else if (Array.isArray(data.menu)) {
+          setMenuItems(data.menu);
+        } else {
+          console.error("Unexpected menu response:", data);
+        }
+      })
+      .catch(err => console.error("Menu fetch error:", err));
+  }, []);
+
 
   const addToCart = (item) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((i) => i.name === item.name);
+      const existingItem = prevCart.find((i) => i._id === item._id);
+
       if (existingItem) {
         return prevCart.map((i) =>
-          i.name === item.name ? { ...i, quantity: i.quantity + 1 } : i
+          i._id === item._id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
+
       return [...prevCart, { ...item, quantity: 1 }];
     });
+    setMessage(`${item.name} added to cart!`);
+    setTimeout(() => setMessage(""), 2000);
   };
 
-  const updateQuantity = (name, quantity) => {
+
+  const updateQuantity = (id, quantity) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.name === name
+        item._id === id
           ? { ...item, quantity: quantity > 0 ? quantity : 1 }
           : item
       )
     );
   };
 
-  const removeFromCart = (name) => {
-    setCart((prevCart) => prevCart.filter((item) => item.name !== name));
+  const removeFromCart = (id) => {
+    setCart((prevCart) => prevCart.filter((item) => item._id !== id));
+  };
+
+  const placeOrder = async () => {
+    if (cart.length === 0) return;
+
+    const order = {
+      items: cart.map(item => ({
+        menuItem: item._id,
+        quantity: item.quantity
+      }))
+    };
+
+    try {
+      const res = await fetch("/api/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(order)
+      });
+
+      if (res.ok) {
+        alert("Order placed successfully!");
+        setCart([]);
+      } else {
+        alert("Order failed.");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   const clearCart = () => setCart([]);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
 
   return (
     <div>
@@ -62,7 +104,7 @@ function Menu() {
         }}
       >
         <div className="hero_text">
-        <Link to="/">COFFEE BISTRO MENU</Link>
+          <Link to="/">COFFEE BISTRO MENU</Link>
         </div>
       </div>
 
@@ -75,13 +117,25 @@ function Menu() {
           </tr>
         </thead>
         <tbody>
-          {menuItems.map((item, idx) => (
-            <tr key={idx} onClick={() => addToCart(item)}>
+          {menuItems.map((item) => (
+            <tr key={item._id} onClick={() => addToCart(item)}>
               <td>{item.name}</td>
               <td>{item.price.toFixed(2)}</td>
             </tr>
           ))}
         </tbody>
+        {message && (
+          <div className="cart-message" style={{
+            padding: "10px 20px",
+            backgroundColor: "#4caf50",
+            color: "white",
+            margin: "10px 0",
+            borderRadius: "5px",
+            fontWeight: "bold"
+          }}>
+            {message}
+          </div>
+        )}
       </table>
 
       <div className="cart">
@@ -96,7 +150,7 @@ function Menu() {
                   type="number"
                   min="1"
                   value={item.quantity}
-                  onChange={(e) => updateQuantity(item.name, parseInt(e.target.value))}
+                  onChange={(e) => updateQuantity(item._id, parseInt(e.target.value))}
                   style={{
                     width: "60px",
                     marginLeft: "10px",
@@ -106,7 +160,7 @@ function Menu() {
                 />
                 <span
                   className="remove-btn"
-                  onClick={() => removeFromCart(item.name)}
+                  onClick={() => removeFromCart(item._id)}
                   style={{ marginLeft: "10px" }}
                 >
                   Remove
@@ -122,6 +176,19 @@ function Menu() {
             >
               Clear Cart
             </button>
+            <button
+              onClick={placeOrder}
+              style={{
+                marginTop: "10px",
+                padding: "10px 20px",
+                fontSize: "24px",
+                backgroundColor: "#2e7d32",
+                color: "white"
+              }}
+            >
+              Place Order
+            </button>
+
           </>
         )}
       </div>

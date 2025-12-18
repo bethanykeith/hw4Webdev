@@ -1,95 +1,203 @@
+/* global styles */
 body {
-    font-family: 'BBH Sans Bogle', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: rgb(83, 56, 56);
-    background-color: #fff8f0;
-  }
-  
-  .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    height: 30%;
-    text-align: center;
-    padding: 60px 0;
-  }
-  
+  font-family: 'BBH Sans Bogle', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: rgb(83, 56, 56);
+  background-color: #fff8f0;
+}
+
+/* hero */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  height: 30%;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.hero_text a {
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-size: 60px;
+  color: rgb(249, 244, 219);
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* page*/
+.contactpage {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.map-img {
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(83, 56, 56, 0.2);
+  margin: 20px auto;
+  display: block;
+}
+
+/* Form */
+.contact-form-section {
+  width: 60%;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(83, 56, 56, 0.1);
+  box-sizing: border-box;
+}
+
+.contact-form-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  color: rgb(83, 56, 56);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: rgb(83, 56, 56);
+}
+
+input,
+textarea {
+  font-family: inherit;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #d3bfa3;
+  border-radius: 10px;
+  background-color: #fffdf8;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: rgb(83, 56, 56);
+  box-shadow: 0 0 5px rgba(83, 56, 56, 0.3);
+}
+
+button {
+  background-color: #5c4033; /* warm brown */
+  color: #fff8e7;
+  border: none;
+  padding: 12px 25px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e2a23; /* darker brown */
+}
+
+/* Mobile*/
+
+/* Tablets & smaller desktops */
+@media (max-width: 1024px) {
   .hero_text a {
-    font-family: "BBH Sans Bartle", sans-serif;
-    font-size: 60px;
-    color: rgb(249, 244, 219);
-    text-decoration: none;
-    letter-spacing: 1px;
+    font-size: 48px;
   }
-  
-  .contactpage {
-    text-align: center;
-    margin: 40px 0;
-  }
-  
+
   .map-img {
-    width: 80%;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(83, 56, 56, 0.2);
+    width: 90%;
   }
-  
+
   .contact-form-section {
-    width: 60%;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(83, 56, 56, 0.1);
+    width: 80%;
+    padding: 30px;
   }
-  
+
   .contact-form-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 36px;
-    color: rgb(83, 56, 56);
+    font-size: 30px;
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
+
   label {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: rgb(83, 56, 56);
+    font-size: 18px;
   }
-  
+
   input,
   textarea {
-    font-family: inherit;
-    font-size: 18px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #d3bfa3;
-    border-radius: 10px;
-    background-color: #fffdf8;
+    font-size: 16px;
+    padding: 8px;
   }
-  
-  input:focus,
-  textarea:focus {
-    outline: none;
-    border-color: rgb(83, 56, 56);
-    box-shadow: 0 0 5px rgba(83, 56, 56, 0.3);
-  }
-  
+
   button {
-    background-color: #5c4033; /* warm brown */
-    color: #fff8e7;
-    border: none;
-    padding: 12px 25px;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    align-self: center;
-    transition: background-color 0.3s ease;
+    font-size: 18px;
+    padding: 10px 20px;
   }
-  
-  button:hover {
-    background-color: #3e2a23; /* darker brown */
+}
+
+/* Large phones / small tablets */
+@media (max-width: 768px) {
+  .hero_text a {
+    font-size: 36px;
   }
-  
+
+  .contact-form-section {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .contact-form-section h2 {
+    font-size: 26px;
+  }
+
+  label {
+    font-size: 16px;
+  }
+
+  input,
+  textarea {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .hero_text a {
+    font-size: 28px;
+  }
+
+  .map-img {
+    width: 95%;
+  }
+
+  .contact-form-section h2 {
+    font-size: 22px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 6px 15px;
+  }
+}

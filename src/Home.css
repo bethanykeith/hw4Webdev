@@ -1,4 +1,4 @@
-
+/*global styles*/
 html, body {
   margin: 0;
   padding: 0;
@@ -6,36 +6,42 @@ html, body {
   color: rgb(83, 56, 56);
 }
 
+/* navigation */
 .homepage {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
   padding: 30px 300px;
-  height: 100vh;
+  min-height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   font-family: "BBH Sans Bartle", sans-serif;
   font-weight: 400;
-  text-align: right;
-  margin: 0;
+  text-align: center;
+  flex-wrap: wrap;
   border-bottom: 2px solid rgba(83, 56, 56, 0.1);
+  box-sizing: border-box;
 }
 
-.nav-left{
+/* Left & Right Navigation */
+.nav-left,
+.nav-right {
   display: flex;
-  gap: 80px;
+  gap: 40px;
   flex-direction: column;
+}
+
+.nav-left {
   margin-right: 200px; 
 }
+
 .nav-right {
-display: flex;
-gap: 80px;
-flex-direction: column;
-margin-left: 200px; 
+  margin-left: 200px; 
 }
 
+/* Links */
 .homepage a {
   display: flex;
   align-items: center;     
@@ -56,4 +62,63 @@ margin-left: 200px;
 .homepage a:hover {
   color: rgb(120, 80, 80);
   transform: scale(1.05);
+}
+
+/*MOBILE*/ 
+/* Tablets & smaller desktops */
+@media (max-width: 1024px) {
+  .homepage {
+    padding: 30px 150px;
+    gap: 30px;
+  }
+
+  .homepage a {
+    font-size: 2rem;
+    padding: 5px 12px;
+  }
+
+  .nav-left, .nav-right {
+    gap: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+/* Large phones / small tablets */
+@media (max-width: 768px) {
+  .homepage {
+    flex-direction: column;
+    padding: 20px 40px;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: row;
+    gap: 20px;
+    margin: 0;
+  }
+
+  .homepage a {
+    font-size: 1.8rem;
+    padding: 4px 10px;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .homepage {
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .homepage a {
+    font-size: 1.5rem;
+    padding: 3px 8px;
+  }
+
+  .nav-left, .nav-right {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
