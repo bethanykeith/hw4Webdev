@@ -9,7 +9,7 @@ function Menu() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("https://homework4webdev.onrender.com/api/menu")
+    fetch("https://hw4webdev.onrender.com/api/menu")
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
@@ -66,7 +66,7 @@ function Menu() {
     };
 
     try {
-      const res = await fetch('https://homework4webdev.onrender.com/api/orders', {
+      const res = await fetch('https://hw4webdev.onrender.com/api/orders', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(order)
