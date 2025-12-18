@@ -10,6 +10,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC", 
-  "proxy": "http://localhost:5050"
+  "license": "ISC",
+  "proxy": "http://localhost:5050",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
