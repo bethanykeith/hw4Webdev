@@ -10,8 +10,13 @@ const app = express();
 
 // CORS — allow GitHub Pages
 app.use(cors({
-  origin: "https://bethanykeith.github.io"
+  origin: [
+    "https://bethanykeith.github.io"
+  ],
+  methods: ["GET", "POST"],
+  allowedHeaders: ["Content-Type"]
 }));
+
 
 app.use(express.json());
 
