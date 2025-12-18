@@ -2,7 +2,7 @@
   "name": "hw-3",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://homework4webdev.onrender.com/hw4Webdev",
+  "homepage": "https://bethanykeith.github.io/hw4Webdev",
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
