@@ -38,9 +38,14 @@ button:hover {
 }
 
 .hero_text a {
-  display: inline-block;    
-  word-wrap: break-word;
-  padding: 0 10px;         
+  color: rgb(249, 244, 219);
+  font-size: 60px;
+  font-family: "BBH Sans Bartle", sans-serif;
+  text-align: center;
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  word-break: normal; 
+  white-space: normal;        
 }
 
 

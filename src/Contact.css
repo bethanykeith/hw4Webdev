@@ -16,11 +16,15 @@ body {
 }
 
 .hero_text a {
-  font-family: "BBH Sans Bartle", sans-serif;
-  font-size: 60px;
   color: rgb(249, 244, 219);
-  text-decoration: none;
-  letter-spacing: 1px;
+  font-size: 50px;
+  font-family: "BBH Sans Bartle", sans-serif;
+  text-align: center;
+  line-height: 1.2;
+  word-wrap: break-word; 
+  overflow-wrap: break-word; 
+  word-break: normal; 
+  white-space: normal; 
 }
 
 /* page*/
