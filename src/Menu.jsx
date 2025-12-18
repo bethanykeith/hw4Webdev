@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Menu.css";
+import API_BASE from "../config";
 
 function Menu() {
   const [menuItems, setMenuItems] = useState([]);
@@ -8,7 +9,7 @@ function Menu() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("/api/menu")
+    fetch(`${API_BASE}/api/menu`)
       .then(res => res.json())
       .then(data => {
         if (Array.isArray(data)) {
